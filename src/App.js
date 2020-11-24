@@ -4,7 +4,7 @@ import React from "react";
 function App() {
   return (
     <div className="App">
-      <h1>Movie App</h1>
+      <h1>Movie Rating App</h1>
     </div>
   );
 }
