@@ -1,12 +1,12 @@
-import { combineReducers } from "redux";
+// import { combineReducers } from "redux";
 
-const movies = (state = [], action) => {
-  switch (action.type) {
-    case "FETCH_MOVIES":
-      return action.value;
-    default:
-      return state;
-  }
-};
+// const movies = (state = [], action) => {
+//   switch (action.type) {
+//     case "FETCH_MOVIES":
+//       return action.value;
+//     default:
+//       return state;
+//   }
+// };
 
-export default combineReducers({ movies });
+// export default combineReducers({ movies });
