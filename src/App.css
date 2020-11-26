@@ -1,3 +1,11 @@
 .App {
   text-align: center;
 }
+
+.result-list {
+  margin-right: 40px;
+}
+
+.result-list-item {
+  list-style: none;
+}
