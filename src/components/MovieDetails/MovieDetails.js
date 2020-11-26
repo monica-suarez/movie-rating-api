@@ -1,7 +1,7 @@
 import React from "react";
 
-const MovieDetails = () => {
-  return <h1>Test</h1>;
+const MovieDetails = (props) => {
+  return <h1>Trying</h1>;
 };
 
 export default MovieDetails;

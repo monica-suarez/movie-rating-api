@@ -12,8 +12,8 @@ const Home = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    console.log("HeyHey");
-    const API_KEY = process.env.REACT_APP_API_KEY;
+    console.log("Something happened");
+    const API_KEY = "9d0e75c6e81c0b4c9295c1c5ab4c5af1";
     fetch(
       `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${search}&include_adult=false`
     )
@@ -21,7 +21,7 @@ const Home = () => {
       .then((data) => {
         setMovies(data.results);
       });
-    console.log(movies);
+    console.log(setMovies);
   };
 
   return (
