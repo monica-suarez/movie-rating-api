@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const SearchResults = (props) => {
   return (
@@ -6,7 +7,9 @@ const SearchResults = (props) => {
       {props.movies.map((movie, index) => {
         return (
           <li className="result-list-item" key={index}>
-            {movie.title}
+            <Link to={`/movieDetails/${movie.id}`} movieid={movie.id}>
+              {movie.title}
+            </Link>
           </li>
         );
       })}
