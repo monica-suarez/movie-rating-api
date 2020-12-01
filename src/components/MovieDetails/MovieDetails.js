@@ -1,7 +1,17 @@
 import React from "react";
 
-const MovieDetails = (props) => {
-  return <h1>Trying</h1>;
-};
+class MovieDetails extends React.Component() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      movieDetails: [],
+    };
+  }
+  //   console.log(props.match.params.id);
+  //   const movie_id = props.match.params.id;
+  render() {
+    return <h1>Sigh</h1>;
+  }
+}
 
 export default MovieDetails;
