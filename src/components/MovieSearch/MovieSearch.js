@@ -3,7 +3,7 @@ import React from "react";
 const MovieSearch = (props, searchinput) => {
   return (
     <form onSubmit={props.handleClick}>
-      <label htmlFor="searchinput">Find a Movie:</label>
+      <label id="searchinput">Find a Movie:</label>
       <br />
       <br />
       <input
