@@ -31,7 +31,7 @@ const MovieDetails = (props) => {
   };
   useEffect(() => {
     getDetails();
-  }, []);
+  });
   //   const movie_id = props.match.params.id;
   //   console.log(movie_id);
   return (
