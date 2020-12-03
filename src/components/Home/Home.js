@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import MovieSearch from "../MovieSearch";
 import SearchResults from "../SearchResults";
+import "./home.css";
 
 const Home = () => {
   const [search, setSearch] = useState("");
@@ -25,12 +26,14 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <h1>Search/Rate Movies</h1>
-      <MovieSearch handleClick={handleClick} handleUpdate={handleUpdate} />
-      <ul>
-        <SearchResults movies={movies} />
-      </ul>
+    <div className="home-page">
+      <div className="layer">
+        <div className="title">Monica's Movie Database!</div>
+        <MovieSearch handleClick={handleClick} handleUpdate={handleUpdate} />
+        <ul>
+          <SearchResults movies={movies} />
+        </ul>
+      </div>
     </div>
   );
 };

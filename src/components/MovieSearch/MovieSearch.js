@@ -1,4 +1,5 @@
 import React from "react";
+import "./moviesearch.css";
 
 const MovieSearch = (props, searchinput) => {
   return (
