@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const MovieDetails = (props) => {
   const [movieDetails, setMovieDetails] = useState([]);
-  const [director, setDirector] = useState({});
+  const [director, setDirector] = useState([]);
   const movie_id = props.match.params.id;
   console.log(movie_id);
   console.log(props.location.movieProp.original_title);
@@ -23,8 +23,7 @@ const MovieDetails = (props) => {
     const directorName = data.crew.filter((crewmember) => {
       return crewmember.job === "Director";
     });
-    setDirector(directorName);
-    console.log(director[0].name);
+    setDirector(directorName[0].name);
   };
   useEffect(() => {
     getDetails();
@@ -35,7 +34,7 @@ const MovieDetails = (props) => {
     <div moviedetails={movieDetails}>
       <p>{originalTitle}</p>
       <p>{movie_id}</p>
-      <p>{director[0].name}</p>
+      <p>{director}</p>
     </div>
   );
 };
