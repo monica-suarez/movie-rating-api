@@ -1,0 +1,3 @@
+[submodule "movie-rating-api"]
+	path = movie-rating-api
+	url = https://github.com/monica-suarez/movie-rating-api
