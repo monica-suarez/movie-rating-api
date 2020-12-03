@@ -11,19 +11,23 @@ const MovieDetails = (props) => {
   //   const movieOverview = props.match.params.movieOverview;
   //   const releaseDate = props.match.params.release_date
   const getDetails = async () => {
-    const movie_id = props.match.params.id;
-    console.log(movie_id);
-    const API_KEY = process.env.REACT_APP_API_KEY;
-    const res = await fetch(
-      `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${API_KEY}&language=en-US`
-    );
-    const data = await res.json();
-    console.log(data.crew);
-    setMovieDetails(data);
-    const directorName = data.crew.filter((crewmember) => {
-      return crewmember.job === "Director";
-    });
-    setDirector(directorName[0].name);
+    try {
+      const movie_id = props.match.params.id;
+      console.log(movie_id);
+      const API_KEY = process.env.REACT_APP_API_KEY;
+      const res = await fetch(
+        `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${API_KEY}&language=en-US`
+      );
+      const data = await res.json();
+      console.log(data.crew);
+      setMovieDetails(data);
+      const directorName = data.crew.filter((crewmember) => {
+        return crewmember.job === "Director";
+      });
+      setDirector(directorName[0].name);
+    } catch (error) {
+      console.log(error);
+    }
   };
   useEffect(() => {
     getDetails();
