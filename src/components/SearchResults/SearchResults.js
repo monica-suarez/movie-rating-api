@@ -11,6 +11,7 @@ const SearchResults = (props) => {
             <Link
               to={{
                 pathname: `/movieDetails/${movie.id}`,
+                movieProp: movie,
               }}
             >
               {movie.title}

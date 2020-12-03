@@ -2,29 +2,40 @@ import React, { useState, useEffect } from "react";
 
 const MovieDetails = (props) => {
   const [movieDetails, setMovieDetails] = useState([]);
+  const [director, setDirector] = useState({});
+  const movie_id = props.match.params.id;
+  console.log(movie_id);
+  console.log(props.location.movieProp.original_title);
   //   const moviePoster = props.match.params.poster_path;
-  //   const originalTitle = props.match.params.original_title;
+  const originalTitle = props.location.movieProp.original_title;
   //   const movieOverview = props.match.params.movieOverview;
   //   const releaseDate = props.match.params.release_date
-
-  useEffect(() => (API_KEY, movie_id) => {
-    API_KEY = process.env.REACT_APP_API_KEY;
-    movie_id = props.match.params.id;
+  const getDetails = async () => {
+    const movie_id = props.match.params.id;
     console.log(movie_id);
-    fetch(
+    const API_KEY = process.env.REACT_APP_API_KEY;
+    const res = await fetch(
       `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${API_KEY}&language=en-US`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setMovieDetails(data.results);
-      });
-    console.log(setMovieDetails);
-  });
+    );
+    const data = await res.json();
+    console.log(data.crew);
+    setMovieDetails(data);
+    const directorName = data.crew.filter((crewmember) => {
+      return crewmember.job === "Director";
+    });
+    setDirector(directorName);
+    console.log(director[0].name);
+  };
+  useEffect(() => {
+    getDetails();
+  }, []);
   //   const movie_id = props.match.params.id;
   //   console.log(movie_id);
   return (
     <div moviedetails={movieDetails}>
-      <p>Losing It</p>
+      <p>{originalTitle}</p>
+      <p>{movie_id}</p>
+      <p>{director[0].name}</p>
     </div>
   );
 };
