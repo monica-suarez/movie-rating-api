@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./moviedetails.css";
+import MovieReel from "./film-strip.jpg";
 
 const MovieDetails = (props) => {
   const [movieDetails, setMovieDetails] = useState([]);
@@ -35,16 +36,29 @@ const MovieDetails = (props) => {
   //   const movie_id = props.match.params.id;
   //   console.log(movie_id);
   return (
-    <div moviedetails={movieDetails}>
-      <div className="details-list">
-        <p name="title">{originalTitle}</p>
-        <label for="movie-overview">Movie Overview:</label>
-        <p name="movie-overview">{movieOverview}</p>
-        <label for="director">Directed By:</label>
-        <p>{director}</p>
-        <label for="release-date">Release Date:</label>
-        <p>{releaseDate}</p>
-      </div>
+    <div className="movie-details" moviedetails={movieDetails}>
+      <aside>
+        <img src={MovieReel} className="movie-reel" alt="movie-reel" />
+      </aside>
+      <body>
+        <div className="details-list">
+          <p className="movie-title" name="title">
+            {originalTitle}
+          </p>
+          <div className="details">
+            <label for="movie-overview">Movie Overview:</label>
+            <p name="movie-overview">{movieOverview}</p>
+          </div>
+          <div className="details">
+            <label for="director">Directed By:</label>
+            <p name="director">{director}</p>
+          </div>
+          <div className="details">
+            <label for="release-date">Release Date:</label>
+            <p name="release-date">{releaseDate}</p>
+          </div>
+        </div>
+      </body>
     </div>
   );
 };
