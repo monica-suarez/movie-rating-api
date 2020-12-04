@@ -25,7 +25,6 @@ const MovieDetails = (props) => {
   const getDetails = async () => {
     try {
       const movie_id = props.match.params.id;
-      console.log(movie_id);
       const API_KEY = process.env.REACT_APP_API_KEY;
       const res = await fetch(
         `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${API_KEY}&language=en-US`
@@ -47,7 +46,15 @@ const MovieDetails = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => () => {
+  useEffect(() => {
+    window.localStorage.getItem("thumbsUp", thumbsUp);
+  });
+
+  useEffect(() => {
+    window.localStorage.getItem("thumbsDown", thumbsDown);
+  });
+
+  useEffect(() => {
     window.localStorage.setItem("thumbsUp", thumbsUp);
   });
 
