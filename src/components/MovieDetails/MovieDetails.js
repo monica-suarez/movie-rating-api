@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./moviedetails.css";
 import MovieReel from "./film-strip.jpg";
+import ThumbUpIcon from "@material-ui/icons/ThumbUp";
+import ThumbDownAltIcon from "@material-ui/icons/ThumbDownAlt";
 
 const MovieDetails = (props) => {
   const [movieDetails, setMovieDetails] = useState([]);
   const [director, setDirector] = useState([]);
+  const [thumbsUp, setThumbsUp] = useState(0);
+  const [thumbsDown, setThumbsDown] = useState(0);
+
   const movie_id = props.match.params.id;
   console.log(movie_id);
   const originalTitle = props.location.movieProp.original_title;
@@ -33,29 +38,53 @@ const MovieDetails = (props) => {
   useEffect(() => {
     getDetails();
   }, []);
-  //   const movie_id = props.match.params.id;
-  //   console.log(movie_id);
+  const thumbsUpCounter = () => {
+    setThumbsUp((prevUpCount) => prevUpCount + 1);
+  };
+
+  const thumbsDownCounter = () => {
+    setThumbsDown((prevDownCount) => prevDownCount + 1);
+  };
   return (
     <div className="movie-details" moviedetails={movieDetails}>
       <aside>
         <img src={MovieReel} className="movie-reel" alt="movie-reel" />
       </aside>
-      <body>
+      <body className="detail-body">
         <div className="details-list">
           <p className="movie-title" name="title">
             {originalTitle}
           </p>
           <div className="details">
-            <label for="movie-overview">Movie Overview:</label>
+            <label className="label" for="movie-overview">
+              Movie Overview:
+            </label>
             <p name="movie-overview">{movieOverview}</p>
           </div>
           <div className="details">
-            <label for="director">Directed By:</label>
+            <label className="label" for="director">
+              Directed By:
+            </label>
             <p name="director">{director}</p>
           </div>
           <div className="details">
-            <label for="release-date">Release Date:</label>
+            <label className="label" for="release-date">
+              Release Date:
+            </label>
             <p name="release-date">{releaseDate}</p>
+          </div>
+        </div>
+        <div className="thumb-counter">
+          <div className="counter-title">Like/Dislike this Film?</div>
+          <div className="the-thumbs">
+            <div className="counter-area">
+              <ThumbUpIcon onClick={thumbsUpCounter} />
+              <p>{thumbsUp}</p>
+            </div>
+            <div className="counter-area">
+              <ThumbDownAltIcon onClick={thumbsDownCounter} />
+              <p>{thumbsDown}</p>
+            </div>
           </div>
         </div>
       </body>

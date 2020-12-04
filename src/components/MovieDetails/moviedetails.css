@@ -1,3 +1,7 @@
+.detail-body {
+  display: flex;
+  flex-direction: column;
+}
 .movie-details {
   display: flex;
   flex-direction: row;
@@ -29,4 +33,37 @@ aside {
   padding-bottom: 35px;
   font-size: 18px;
   font-weight: 400;
+}
+
+.label {
+  font-weight: 700;
+}
+
+.thumb-counter {
+  margin-right: 30%;
+}
+
+.counter-title {
+  font-weight: 700;
+  padding-bottom: 20px;
+}
+
+.the-thumbs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.counter-area {
+  display: flex;
+  flex-direction: row;
+  width: 50px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: ivory;
+  padding: 10px;
+  border-radius: 25px;
 }
