@@ -56,21 +56,15 @@ const MovieDetails = (props) => {
             {originalTitle}
           </p>
           <div className="details">
-            <label className="label" for="movie-overview">
-              Movie Overview:
-            </label>
+            <label className="label">Movie Overview:</label>
             <p name="movie-overview">{movieOverview}</p>
           </div>
           <div className="details">
-            <label className="label" for="director">
-              Directed By:
-            </label>
+            <label className="label">Directed By:</label>
             <p name="director">{director}</p>
           </div>
           <div className="details">
-            <label className="label" for="release-date">
-              Release Date:
-            </label>
+            <label className="label">Release Date:</label>
             <p name="release-date">{releaseDate}</p>
           </div>
         </div>
