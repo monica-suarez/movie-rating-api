@@ -42,9 +42,10 @@ const MovieDetails = (props) => {
     }
   };
 
-  useEffect(() => () => {
+  useEffect(() => {
     getDetails();
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => () => {
     window.localStorage.setItem("thumbsUp", thumbsUp);
@@ -67,7 +68,7 @@ const MovieDetails = (props) => {
       <aside>
         <img src={MovieReel} className="movie-reel" alt="movie-reel" />
       </aside>
-      <body className="detail-body">
+      <main className="detail-body">
         <div className="details-list">
           <p className="movie-title" name="title">
             {originalTitle}
@@ -107,7 +108,7 @@ const MovieDetails = (props) => {
             </Link>
           </div>
         </div>
-      </body>
+      </main>
     </div>
   );
 };
