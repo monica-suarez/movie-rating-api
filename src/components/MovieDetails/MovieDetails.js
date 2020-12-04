@@ -27,8 +27,6 @@ const MovieDetails = (props) => {
     },
   };
 
-  // const movie_index = props.location.indexProp;
-  // console.log(movie_index);
   const originalTitle = props.location.movieProp.original_title;
   const movieOverview = props.location.movieProp.overview;
   console.log(movieOverview);
@@ -67,22 +65,6 @@ const MovieDetails = (props) => {
     console.log(JSON.stringify(allThumbCounts));
     console.log(getCounts);
   });
-
-  // useEffect(() => {
-  //   localStorage.getItem("thumbsUp", JSON.parse(thumbsUp));
-  // });
-
-  // useEffect(() => {
-  //   localStorage.getItem("thumbsDown", JSON.parse(thumbsDown));
-  // });
-
-  // useEffect(() => {
-  //   localStorage.setItem("thumbsUp", JSON.stringify(thumbsUp));
-  // });
-
-  // useEffect(() => () => {
-  //   localStorage.setItem("thumbsDown", JSON.stringify(thumbsDown));
-  // });
 
   const thumbsUpCounter = () => {
     setThumbsUp((prevUpCount) => prevUpCount + 1);
