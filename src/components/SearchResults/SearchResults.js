@@ -1,5 +1,6 @@
 import { React } from "react";
 import { Link } from "react-router-dom";
+import "./searchresults.css";
 
 const SearchResults = (props) => {
   return (
@@ -9,6 +10,7 @@ const SearchResults = (props) => {
         return (
           <li className="result-list-item" key={index}>
             <Link
+              className="search-link"
               to={{
                 pathname: `/movieDetails/${movie.id}`,
                 movieProp: movie,

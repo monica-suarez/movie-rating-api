@@ -1,4 +1,20 @@
-#searchinput {
-  font-size: 36px;
-  padding-top: 25px;
+.search-form {
+  padding-top: 50px;
+}
+.search-input-label {
+  font-size: 48px;
+  font-family: "East Sea Dokdo", cursive;
+}
+
+.search-input {
+  width: 350px;
+  height: 36px;
+  font-size: 26px;
+}
+
+.submit-button {
+  background-color: black;
+  color: whitesmoke;
+  font-weight: bolder;
+  padding: 10px, 15px, 10px, 15px;
 }
