@@ -17,6 +17,8 @@ const MovieDetails = (props) => {
 
   const movie_id = props.match.params.id;
   console.log(movie_id);
+  // const movie_index = props.location.indexProp;
+  // console.log(movie_index);
   const originalTitle = props.location.movieProp.original_title;
   const movieOverview = props.location.movieProp.overview;
   console.log(movieOverview);
@@ -71,7 +73,11 @@ const MovieDetails = (props) => {
   };
 
   return (
-    <div className="movie-details" moviedetails={movieDetails}>
+    <div
+      className="movie-details"
+      moviedetails={movieDetails}
+      // index={movie_index}
+    >
       <aside>
         <img src={MovieReel} className="movie-reel" alt="movie-reel" />
       </aside>

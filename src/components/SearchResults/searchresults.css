@@ -4,7 +4,7 @@
 
 .result-list-item {
   list-style: none;
-  margin: 12px;
+  margin: 14px;
 }
 
 a {
@@ -12,11 +12,12 @@ a {
   font-size: 16px;
   font-weight: bold;
   background-color: ivory;
-  border-radius: 25px;
-  padding: 4px;
+  border-radius: 20px;
+  padding: 5px;
   text-decoration: none;
 }
 
 a:hover {
   color: rgb(223, 33, 0);
+  border: solid 2px rgb(223, 33, 0);
 }

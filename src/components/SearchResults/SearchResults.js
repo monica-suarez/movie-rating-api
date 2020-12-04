@@ -14,6 +14,7 @@ const SearchResults = (props) => {
               to={{
                 pathname: `/movieDetails/${movie.id}`,
                 movieProp: movie,
+                indexProp: index,
               }}
             >
               {movie.title}
