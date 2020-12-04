@@ -56,7 +56,7 @@ const MovieDetails = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
+  useEffect(() => () => {
     let allThumbCounts = [];
     const getCounts = JSON.parse(localStorage.getItem("thumbCount"));
     allThumbCounts = getCounts;
