@@ -27,13 +27,11 @@ const Home = () => {
 
   return (
     <div className="home-page">
-      <div className="layer">
-        <div className="title">Monica's Movie Database!</div>
-        <MovieSearch handleClick={handleClick} handleUpdate={handleUpdate} />
-        <ul>
-          <SearchResults movies={movies} />
-        </ul>
-      </div>
+      <div className="title">Monica's Movie Database!</div>
+      <MovieSearch handleClick={handleClick} handleUpdate={handleUpdate} />
+      <ul>
+        <SearchResults movies={movies} />
+      </ul>
     </div>
   );
 };
