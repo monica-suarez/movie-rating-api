@@ -20,12 +20,12 @@ const MovieDetails = (props) => {
   const movie_id = props.match.params.id;
   console.log(movie_id);
 
-  const thumbCount = {
-    [movie_id]: {
-      thumbsUps: thumbsUp,
-      thumbsDowns: thumbsDown,
-    },
-  };
+  // const thumbCount = {
+  //   [movie_id]: {
+  //     thumbsUps: thumbsUp,
+  //     thumbsDowns: thumbsDown,
+  //   },
+  // };
 
   const originalTitle = props.location.movieProp.original_title;
   const movieOverview = props.location.movieProp.overview;
@@ -56,14 +56,31 @@ const MovieDetails = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => () => {
-    let allThumbCounts = [];
-    const getCounts = JSON.parse(localStorage.getItem("thumbCount"));
-    allThumbCounts = getCounts;
-    allThumbCounts.push(thumbCount);
-    localStorage.setItem("thumbCount", JSON.stringify(allThumbCounts));
-    console.log(JSON.stringify(allThumbCounts));
-    console.log(getCounts);
+  useEffect(() => {
+    window.localStorage.getItem("thumbsUp", thumbsUp);
+    window.localStorage.getItem("thumbsDown", thumbsDown);
+    // let allThumbCounts = [];
+    //   const thumbCount = {
+    //     [movie_id]: {
+    //       thumbsUps: thumbsUp,
+    //       thumbsDowns: thumbsDown,
+    //     },
+    //   };
+    //   let allThumbCounts = JSON.parse(
+    //     localStorage.getItem("allThumbCounts") || "null"
+    //   );
+    //   localStorage.setItem("allThumbCounts", JSON.stringify(allThumbCounts));
+    //   const getCounts = JSON.parse(localStorage.getItem("thumbCount") || null);
+    //   allThumbCounts = getCounts;
+    //   allThumbCounts.push(thumbCount);
+    //   localStorage.setItem("thumbCount", JSON.stringify(allThumbCounts));
+    //   console.log(JSON.stringify(allThumbCounts));
+    //   console.log(getCounts);
+  });
+
+  useEffect(() => {
+    window.localStorage.setItem("thumbsUp", thumbsUp);
+    window.localStorage.setItem("thumbsDown", thumbsDown);
   });
 
   const thumbsUpCounter = () => {
