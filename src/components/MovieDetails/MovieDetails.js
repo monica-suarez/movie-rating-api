@@ -8,15 +8,25 @@ import { Link } from "react-router-dom";
 const MovieDetails = (props) => {
   const [movieDetails, setMovieDetails] = useState([]);
   const [director, setDirector] = useState([]);
+
   const initialThumbUpCount = () =>
-    Number(window.localStorage.getItem("thumbsUp") || 0);
+    Number(JSON.parse(localStorage.getItem("thumbsUp")) || 0);
   const [thumbsUp, setThumbsUp] = useState(initialThumbUpCount);
+
   const initialThumbDownCount = () =>
-    Number(window.localStorage.getItem("thumbsDown") || 0);
+    Number(JSON.parse(localStorage.getItem("thumbsDown")) || 0);
   const [thumbsDown, setThumbsDown] = useState(initialThumbDownCount);
 
   const movie_id = props.match.params.id;
   console.log(movie_id);
+
+  const thumbCount = {
+    [movie_id]: {
+      thumbsUps: thumbsUp,
+      thumbsDowns: thumbsDown,
+    },
+  };
+
   // const movie_index = props.location.indexProp;
   // console.log(movie_index);
   const originalTitle = props.location.movieProp.original_title;
@@ -49,20 +59,30 @@ const MovieDetails = (props) => {
   }, []);
 
   useEffect(() => {
-    window.localStorage.getItem("thumbsUp", thumbsUp);
+    let allThumbCounts = [];
+    const getCounts = JSON.parse(localStorage.getItem("thumbCount"));
+    allThumbCounts = getCounts;
+    allThumbCounts.push(thumbCount);
+    localStorage.setItem("thumbCount", JSON.stringify(allThumbCounts));
+    console.log(JSON.stringify(allThumbCounts));
+    console.log(getCounts);
   });
 
-  useEffect(() => {
-    window.localStorage.getItem("thumbsDown", thumbsDown);
-  });
+  // useEffect(() => {
+  //   localStorage.getItem("thumbsUp", JSON.parse(thumbsUp));
+  // });
 
-  useEffect(() => {
-    window.localStorage.setItem("thumbsUp", thumbsUp);
-  });
+  // useEffect(() => {
+  //   localStorage.getItem("thumbsDown", JSON.parse(thumbsDown));
+  // });
 
-  useEffect(() => () => {
-    window.localStorage.setItem("thumbsDown", thumbsDown);
-  });
+  // useEffect(() => {
+  //   localStorage.setItem("thumbsUp", JSON.stringify(thumbsUp));
+  // });
+
+  // useEffect(() => () => {
+  //   localStorage.setItem("thumbsDown", JSON.stringify(thumbsDown));
+  // });
 
   const thumbsUpCounter = () => {
     setThumbsUp((prevUpCount) => prevUpCount + 1);
