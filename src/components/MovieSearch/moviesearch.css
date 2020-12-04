@@ -1,5 +1,6 @@
 .search-form {
   padding-top: 50px;
+  z-index: 1;
 }
 .search-input-label {
   font-size: 48px;
