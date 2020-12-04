@@ -16,7 +16,7 @@
   z-index: 1;
 }
 
-.layer {
+/* .layer {
   background-color: rgba(248, 247, 216, 0.7);
   position: absolute;
   top: 0;
@@ -25,4 +25,4 @@
   height: 1000px;
   opacity: 95%;
   z-index: 1;
-}
+} */
