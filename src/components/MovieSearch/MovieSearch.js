@@ -1,12 +1,14 @@
 import React from "react";
+import "./moviesearch.css";
 
 const MovieSearch = (props, searchinput) => {
   return (
-    <form onSubmit={props.handleClick}>
-      <label id="searchinput">Find a Movie:</label>
+    <form className="search-form" onSubmit={props.handleClick}>
+      <label className="search-input-label">Find a Movie:</label>
       <br />
       <br />
       <input
+        className="search-input"
         onChange={props.handleUpdate}
         type="text"
         name="searchinput"
@@ -15,7 +17,7 @@ const MovieSearch = (props, searchinput) => {
       />
       <br />
       <br />
-      <input type="submit" value="Submit" />
+      <input className="submit-button" type="submit" value="Search" />
       <br />
       <br />
     </form>

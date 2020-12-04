@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
+import "./moviedetails.css";
 
 const MovieDetails = (props) => {
   const [movieDetails, setMovieDetails] = useState([]);
   const [director, setDirector] = useState([]);
   const movie_id = props.match.params.id;
   console.log(movie_id);
-  console.log(props.location.movieProp.original_title);
-  //   const moviePoster = props.match.params.poster_path;
   const originalTitle = props.location.movieProp.original_title;
-  //   const movieOverview = props.match.params.movieOverview;
-  //   const releaseDate = props.match.params.release_date
+  const movieOverview = props.location.movieProp.overview;
+  console.log(movieOverview);
+  const releaseDate = props.location.movieProp.release_date;
   const getDetails = async () => {
     try {
       const movie_id = props.match.params.id;
@@ -36,9 +36,15 @@ const MovieDetails = (props) => {
   //   console.log(movie_id);
   return (
     <div moviedetails={movieDetails}>
-      <p>{originalTitle}</p>
-      <p>{movie_id}</p>
-      <p>{director}</p>
+      <div className="details-list">
+        <p name="title">{originalTitle}</p>
+        <label for="movie-overview">Movie Overview:</label>
+        <p name="movie-overview">{movieOverview}</p>
+        <label for="director">Directed By:</label>
+        <p>{director}</p>
+        <label for="release-date">Release Date:</label>
+        <p>{releaseDate}</p>
+      </div>
     </div>
   );
 };
