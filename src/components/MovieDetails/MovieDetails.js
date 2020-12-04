@@ -3,12 +3,17 @@ import "./moviedetails.css";
 import MovieReel from "./film-strip.jpg";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import ThumbDownAltIcon from "@material-ui/icons/ThumbDownAlt";
+import { Link } from "react-router-dom";
 
 const MovieDetails = (props) => {
   const [movieDetails, setMovieDetails] = useState([]);
   const [director, setDirector] = useState([]);
-  const [thumbsUp, setThumbsUp] = useState(0);
-  const [thumbsDown, setThumbsDown] = useState(0);
+  const initialThumbUpCount = () =>
+    Number(window.localStorage.getItem("thumbsUp") || 0);
+  const [thumbsUp, setThumbsUp] = useState(initialThumbUpCount);
+  const initialThumbDownCount = () =>
+    Number(window.localStorage.getItem("thumbsDown") || 0);
+  const [thumbsDown, setThumbsDown] = useState(initialThumbDownCount);
 
   const movie_id = props.match.params.id;
   console.log(movie_id);
@@ -16,6 +21,7 @@ const MovieDetails = (props) => {
   const movieOverview = props.location.movieProp.overview;
   console.log(movieOverview);
   const releaseDate = props.location.movieProp.release_date;
+
   const getDetails = async () => {
     try {
       const movie_id = props.match.params.id;
@@ -35,9 +41,19 @@ const MovieDetails = (props) => {
       console.log(error);
     }
   };
+
   useEffect(() => () => {
     getDetails();
   });
+
+  useEffect(() => () => {
+    window.localStorage.setItem("thumbsUp", thumbsUp);
+  });
+
+  useEffect(() => () => {
+    window.localStorage.setItem("thumbsDown", thumbsDown);
+  });
+
   const thumbsUpCounter = () => {
     setThumbsUp((prevUpCount) => prevUpCount + 1);
   };
@@ -45,6 +61,7 @@ const MovieDetails = (props) => {
   const thumbsDownCounter = () => {
     setThumbsDown((prevDownCount) => prevDownCount + 1);
   };
+
   return (
     <div className="movie-details" moviedetails={movieDetails}>
       <aside>
@@ -79,6 +96,15 @@ const MovieDetails = (props) => {
               <ThumbDownAltIcon onClick={thumbsDownCounter} />
               <p>{thumbsDown}</p>
             </div>
+          </div>
+          <div className="link-home">
+            <Link
+              to={{
+                pathname: "/",
+              }}
+            >
+              Find Another Movie
+            </Link>
           </div>
         </div>
       </body>

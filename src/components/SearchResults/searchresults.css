@@ -4,12 +4,17 @@
 
 .result-list-item {
   list-style: none;
+  margin: 12px;
 }
 
 a {
-  color: whitesmoke;
-  font-size: 20px;
+  color: black;
+  font-size: 16px;
   font-weight: bold;
+  background-color: ivory;
+  border-radius: 25px;
+  padding: 4px;
+  text-decoration: none;
 }
 
 a:hover {
