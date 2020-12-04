@@ -1,0 +1,16 @@
+.footer {
+  background-color: rgba(0, 0, 0, 0.726);
+  height: 80px;
+}
+
+.credits {
+  padding: 10px;
+  color: ivory;
+  text-align: start;
+}
+
+.logo {
+  padding: 10px;
+  width: 300px;
+  height: auto;
+}
