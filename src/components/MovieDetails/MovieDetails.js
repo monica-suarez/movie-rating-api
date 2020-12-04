@@ -35,9 +35,9 @@ const MovieDetails = (props) => {
       console.log(error);
     }
   };
-  useEffect(() => {
+  useEffect(() => () => {
     getDetails();
-  }, []);
+  });
   const thumbsUpCounter = () => {
     setThumbsUp((prevUpCount) => prevUpCount + 1);
   };
