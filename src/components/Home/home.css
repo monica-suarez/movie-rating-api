@@ -1,9 +1,5 @@
 .home-page {
-<<<<<<< HEAD
   background-image: url("../../../../../movie-rating-api/src/components/Home/filmSet_background.png");
-=======
-  background-image: url("./filmSet_background.png");
->>>>>>> 0a6d80b99e2019391baded07c511169f9c89c04b
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
