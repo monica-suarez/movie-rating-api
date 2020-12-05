@@ -20,13 +20,12 @@ const MovieDetails = (props) => {
   const movie_id = props.match.params.id;
   console.log(movie_id);
 
-  // const thumbCount = {
-  //   [movie_id]: {
-  //     thumbsUps: thumbsUp,
-  //     thumbsDowns: thumbsDown,
-  //   },
-  // };
-
+  const thumbCount = {
+    [movie_id]: {
+      thumbsUp: thumbsUp,
+      thumbsDown: thumbsDown,
+    },
+  };
   const originalTitle = props.location.movieProp.original_title;
   const movieOverview = props.location.movieProp.overview;
   console.log(movieOverview);
@@ -56,32 +55,38 @@ const MovieDetails = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    window.localStorage.getItem("thumbsUp", thumbsUp);
-    window.localStorage.getItem("thumbsDown", thumbsDown);
-    // let allThumbCounts = [];
-    //   const thumbCount = {
-    //     [movie_id]: {
-    //       thumbsUps: thumbsUp,
-    //       thumbsDowns: thumbsDown,
-    //     },
-    //   };
-    //   let allThumbCounts = JSON.parse(
-    //     localStorage.getItem("allThumbCounts") || "null"
-    //   );
-    //   localStorage.setItem("allThumbCounts", JSON.stringify(allThumbCounts));
-    //   const getCounts = JSON.parse(localStorage.getItem("thumbCount") || null);
-    //   allThumbCounts = getCounts;
-    //   allThumbCounts.push(thumbCount);
-    //   localStorage.setItem("thumbCount", JSON.stringify(allThumbCounts));
-    //   console.log(JSON.stringify(allThumbCounts));
-    //   console.log(getCounts);
+  useEffect(() => () => {
+    // window.localStorage.getItem("thumbsUp", thumbsUp);
+    // window.localStorage.getItem("thumbsDown", thumbsDown);
+    // let allThumbCounts = JSON.parse(
+    //   localStorage.getItem("allThumbCounts") || []
+    // );
+    // localStorage.setItem("allThumbCounts", JSON.stringify(allThumbCounts));
+    // const getCounts = JSON.parse(localStorage.getItem("thumbCount") || null);
+    // allThumbCounts = getCounts;
+    // allThumbCounts.push(thumbCount);
+    // localStorage.setItem("thumbCount", JSON.stringify(allThumbCounts));
+    // console.log(JSON.stringify(allThumbCounts));
+    // console.log(getCounts);
+    const allThumbCounts = JSON.parse(
+      localStorage.getItem("allThumbCounts" || "[]")
+    );
+    if (thumbCount.movie_id === undefined) {
+      allThumbCounts.push(thumbCount);
+    }
+    if (thumbCount.movie_id !== undefined) {
+      setThumbsUp(localStorage.setItem("thumbsUp", JSON.stringify(thumbsUp)));
+      setThumbsDown(
+        localStorage.setItem("thumbsDown", JSON.stringify(thumbsDown))
+      );
+    }
+    localStorage.setItem("allThumbCounts", JSON.stringify(allThumbCounts));
   });
 
-  useEffect(() => {
-    window.localStorage.setItem("thumbsUp", thumbsUp);
-    window.localStorage.setItem("thumbsDown", thumbsDown);
-  });
+  // useEffect(() => {
+  //   window.localStorage.setItem("thumbsUp", thumbsUp);
+  //   window.localStorage.setItem("thumbsDown", thumbsDown);
+  // });
 
   const thumbsUpCounter = () => {
     setThumbsUp((prevUpCount) => prevUpCount + 1);
