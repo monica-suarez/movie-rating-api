@@ -1,14 +1,14 @@
 .search-form {
-  padding-top: 40px;
+  padding-top: 2.5rem;
   z-index: 1;
 }
 .search-input-label {
-  font-size: 54px;
+  font-size: 4rem;
   font-family: "East Sea Dokdo", cursive;
 }
 
 .search-input {
-  width: 200px;
+  width: 14rem;
   height: 1.75rem;
   font-size: 1.25rem;
 }
@@ -19,11 +19,19 @@
   font-weight: bolder;
   margin-top: 10px;
   padding: 10px, 15px, 10px, 15px;
+  font-size: 1.5rem;
 }
 @media (min-width: 651px) {
+  .search-input-label {
+    font-size: 4.5rem;
+    font-family: "East Sea Dokdo", cursive;
+  }
   .search-input {
-    width: 350px;
+    width: 22rem;
     height: 2.25rem;
     font-size: 1.65rem;
+  }
+  .search-form {
+    padding-top: 3.5rem;
   }
 }
