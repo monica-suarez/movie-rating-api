@@ -3,17 +3,25 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 1250px;
   z-index: 0;
+  min-height: 100vh;
+}
+* {
+  margin: 0;
 }
 .title {
   color: whitesmoke;
   padding-bottom: 10px;
   padding-top: 10px;
   font-family: "East Sea Dokdo", cursive;
-  font-size: 72px;
+  font-size: 48px;
   background-color: rgba(0, 0, 0, 0.719);
   z-index: 1;
+}
+@media (min-width: 651px) {
+  .title {
+    font-size: 72px;
+  }
 }
 
 /* .layer {

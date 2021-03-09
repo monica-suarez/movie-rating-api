@@ -8,9 +8,9 @@
 }
 
 .search-input {
-  width: 350px;
-  height: 36px;
-  font-size: 26px;
+  width: 200px;
+  height: 1.75rem;
+  font-size: 1.25rem;
 }
 
 .submit-button {
@@ -19,4 +19,11 @@
   font-weight: bolder;
   margin-top: 10px;
   padding: 10px, 15px, 10px, 15px;
+}
+@media (min-width: 651px) {
+  .search-input {
+    width: 350px;
+    height: 2.25rem;
+    font-size: 1.65rem;
+  }
 }
